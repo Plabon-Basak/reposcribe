@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RepoScribe - AI GitHub README Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>RepoScribe</h1>
+            <p class="tagline">Turn your GitHub repository into professional documentation</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card" id="input-section">
+            <h2>GitHub Repository URL</h2>
+            <div class="input-group">
+                <input type="url" id="repo-url" placeholder="https://github.com/user/project" autocomplete="off">
+                <button id="analyze-btn">Analyze Repository</button>
+            </div>
+            <div id="error" class="error"></div>
+        </section>
+
+        <section class="card hidden" id="analysis-section">
+            <h2>Repository Analysis</h2>
+            <div id="analysis-content"></div>
+            <button id="generate-btn" class="primary">Generate README</button>
+        </section>
+
+        <section class="card hidden" id="loading-section">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p id="loading-text">Analyzing repository...</p>
+            </div>
+        </section>
+
+        <section class="card hidden" id="result-section">
+            <h2>Generated README</h2>
+            <div class="actions">
+                <button id="copy-btn">Copy README</button>
+                <button id="download-btn">Download README.md</button>
+                <span id="copy-status" class="copy-status"></span>
+            </div>
+            <div class="tabs">
+                <button class="tab active" data-tab="markdown">Generated Markdown</button>
+                <button class="tab" data-tab="preview">README Preview</button>
+            </div>
+            <div class="tab-content active" id="markdown-tab">
+                <textarea id="markdown-output" readonly spellcheck="false"></textarea>
+            </div>
+            <div class="tab-content" id="preview-tab">
+                <div id="preview-content" class="markdown-body"></div>
+            </div>
+        </section>
+
+        <section class="card hidden" id="quality-section" style="display:none">
+            <h2>README Quality</h2>
+            <div id="quality-check"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built with Gemma & Google AI Studio</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
+"

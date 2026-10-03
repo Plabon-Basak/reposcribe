@@ -1,0 +1,12 @@
+﻿[build]
+  functions = api/index.py
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+[functions]
+  runtime = "python3.12"
+
+[api]
+  directory = "api"
+"

@@ -1,0 +1,12 @@
+﻿reposcribe/
+├── api/
+├── services/
+├── templates/
+├── static/
+├── app.py
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── README.md
+├── vercel.json
+└── LICENSE
